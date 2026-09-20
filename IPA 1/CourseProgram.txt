@@ -1,0 +1,48 @@
+Course Program
+Question
+
+Create a class Course with the following private attributes:
+
+courseId – int
+courseName – String
+courseAdmin – String
+quiz – int
+handson – int
+
+Provide:
+
+A parameterized constructor.
+Getter and Setter methods for all attributes.
+
+Create another class CourseProgram containing the main() method.
+
+Method 1
+findAvgOfQuizByAdmin(Course[] courses, String admin)
+
+This method should:
+
+Accept an array of Course objects and a course admin name.
+Find the average quiz marks of all courses handled by the given admin.
+Return the average as an integer.
+Return 0 if no course matches the given admin.
+Method 2
+sortCourseByHandsOn(Course[] courses, int handson)
+
+This method should:
+
+Return an array of Course objects whose handson value is less than the given value.
+Sort the returned array in ascending order of handson.
+Return null if no such course exists.
+Main Method
+Read details of 4 Course objects.
+Read an admin name.
+Read a handson value.
+Call both methods.
+For findAvgOfQuizByAdmin()
+If returned value is not 0, print the average.
+Otherwise print
+No Course found
+For sortCourseByHandsOn()
+If returned array is not null, print the course names.
+Otherwise print
+No Course found with mentioned attributes.
