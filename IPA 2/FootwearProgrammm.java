@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Footwear {
 
     private int footwearId;
@@ -7,15 +6,14 @@ class Footwear {
     private String footwearType;
     private int price;
 
-    // Parameterized constructor
-    public Footwear(int footwearId, String footwearName, String footwearType, int price) {
-        this.footwearId = footwearId;
-        this.footwearName = footwearName;
-        this.footwearType = footwearType;
-        this.price = price;
+    public Footwear(int footwearId, String footwearName,String footwearType,int price) {
+        this.footwearId=footwearId;
+        this.footwearName=footwearName;
+        this.footwearType=footwearType;
+        this.price=price;
     }
 
-    // Getters
+   
     public int getFootwearId() {
         return footwearId;
     }
@@ -32,72 +30,43 @@ class Footwear {
         return price;
     }
 
-    // Setters
-    public void setFootwearId(int footwearId) {
-        this.footwearId = footwearId;
-    }
-
-    public void setFootwearName(String footwearName) {
-        this.footwearName = footwearName;
-    }
-
-    public void setFootwearType(String footwearType) {
-        this.footwearType = footwearType;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
+   
 }
 
 
 public class FootwearProgrammm {
 
-    // Method 1: Count footwear by type
+  
     public static int getCountByType(Footwear[] footwears, String footwearType) {
-
-        int count = 0;
-
-        for (Footwear f : footwears) {
-            if (f.getFootwearType().equalsIgnoreCase(footwearType)) {
+       int count = 0;
+       for(Footwear f : footwears) {
+            if(f.getFootwearType().equalsIgnoreCase(footwearType)){
                 count++;
             }
         }
-
-        return count;
+           return count;
     }
 
-
-    // Method 2: Find second highest price by brand
-    public static Footwear getSecondHighestPriceByBrand(
-            Footwear[] footwears, String inputFootwearName) {
-
+public static Footwear getSecondHighestPriceByBrand(Footwear[] footwears,String inputFootwearName) {
         ArrayList<Footwear> list = new ArrayList<>();
-
-        // Find footwear having matching brand
-        for (Footwear f : footwears) {
+               for (Footwear f : footwears) {
             if (f.getFootwearName().equalsIgnoreCase(inputFootwearName)) {
                 list.add(f);
             }
         }
-
-        // No brand found
-        if (list.size() == 0) {
+           if (list.size() == 0) {
             return null;
         }
 
-        // Sort by price in descending order
-        list.sort((a, b) -> b.getPrice() - a.getPrice());
+        list.sort((a, b)->b.getPrice()-a.getPrice());
 
-        // If only one footwear is present,
-        // there is no second highest
-        if (list.size() < 2) {
+     
+        if(list.size() < 2) {
             return null;
         }
 
         return list.get(1);
     }
-
 
     public static void main(String[] args) {
 
@@ -114,6 +83,7 @@ public class FootwearProgrammm {
             String type = sc.nextLine();
 
             int price = sc.nextInt();
+            sc.nextLine();
 
             footwears[i] = new Footwear(id, name, type, price);
         }
@@ -122,7 +92,6 @@ public class FootwearProgrammm {
         String inputBrand = sc.nextLine();
 
 
-        // Calling getCountByType
         int count = getCountByType(footwears, inputType);
 
         if (count > 0) {
@@ -132,7 +101,6 @@ public class FootwearProgrammm {
         }
 
 
-        // Calling getSecondHighestPriceByBrand
         Footwear result = getSecondHighestPriceByBrand(
                 footwears, inputBrand);
 
